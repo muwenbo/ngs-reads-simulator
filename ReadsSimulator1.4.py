@@ -54,7 +54,7 @@ class Read:
                 if i < read1Len:
                     self.read1Score[i] = chr(random.sample(range(0,20),1)[0]+33)
                 elif i >= self.seqLen - read2Len:
-                    self.read2Score[self.seqLen-i] = chr(random.sample(range(0,20),1)[0]+33)
+                    self.read2Score[self.seqLen-i-1] = chr(random.sample(range(0,20),1)[0]+33)
 
     def scoreGenerator(self,seq):
         #rawScore = [scoreRange[1]]*len(seq)
