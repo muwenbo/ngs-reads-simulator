@@ -11,4 +11,8 @@ Add sequencing error ot simulated reads.
 1.1
 Add argument parser.
 SNPs are tractable from reads name.
+Reads sequencing quality score are dynammic.
+
+1.2
+
 
