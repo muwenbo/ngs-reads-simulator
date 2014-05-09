@@ -26,3 +26,8 @@ Error generating fuction was optimized to have faster speed.
 
 1.5
 The final version for test SNP variant calling.
+
+1.6
+Add deletion into simulated reads.
+Default parameters are wrapped into argument parser.
+Disabled single-end support.
