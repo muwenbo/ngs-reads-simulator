@@ -23,3 +23,6 @@ The gab between paired reads are dynamic between 200bp and 300bp now.
 
 1.4
 Error generating fuction was optimized to have faster speed.
+
+1.5
+The final version for test SNP variant calling.
