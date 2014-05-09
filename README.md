@@ -17,4 +17,5 @@ Reads sequencing quality score are dynammic.
 SNP missing bug is fixed. Some SNPs are missing because the SNPs located into the gap within reads.
 Coverage bug is fixed. The previous version can only have maximum 200X coverage.
 
-
+1.3
+The gab between paired reads are dynamic between 200bp and 300bp now.
