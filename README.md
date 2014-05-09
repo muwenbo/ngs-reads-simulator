@@ -14,5 +14,7 @@ SNPs are tractable from reads name.
 Reads sequencing quality score are dynammic.
 
 1.2
+SNP missing bug is fixed. Some SNPs are missing because the SNPs located into the gap within reads.
+Coverage bug is fixed. The previous version can only have maximum 200X coverage.
 
 
