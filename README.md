@@ -31,3 +31,6 @@ The final version for test SNP variant calling.
 Add deletion into simulated reads.
 Default parameters are wrapped into argument parser.
 Disabled single-end support.
+
+1.7
+Add deletion with variable length at the sametime, eg 2bp,5bp,10bp...
