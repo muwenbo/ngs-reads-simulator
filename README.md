@@ -28,9 +28,19 @@ Error generating fuction was optimized to have faster speed.
 The final version for test SNP variant calling.
 
 1.6
+The version for testing 1bp deletion.
 Add deletion into simulated reads.
 Default parameters are wrapped into argument parser.
 Disabled single-end support.
+Bug existed: score of error is shifted to either sides when there is deletion on the reads.
 
 1.7
+The version for testing 2bp,5bp,10bp,15bp,20bp,30bp,50bp deletions.
 Add deletion with variable length at the sametime, eg 2bp,5bp,10bp...
+Bug existed: score of error is shifted to either sides when there is deletion on the reads.
+
+1.8
+The version for testing 1bp,2bp,5bp,10bp,15bp,20bp,30bp and 50bp insertions.
+Bug in score shifting is fixed.
+
+
