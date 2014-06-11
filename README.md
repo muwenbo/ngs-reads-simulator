@@ -52,6 +52,6 @@ Bug in score shifting is fixed.
 
 1.0
 Combined simulating SNPs, deletions and insertions.
-Bug exist when simulate both deletion and insertion.
+Fix the bug that deletions at the beginning are not added correctly. 
 
 
