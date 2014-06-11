@@ -66,7 +66,10 @@ class Read:
                 dels.totalReadsCount[index] = dels.totalReadsCount[index] + 1
                 if(p < dels.delFraction[index]+0.01):
                     delIndex = dels.delBufferIndex[index]-self.startPosition
-                    self.seq[delIndex:delIndex+dels.delLen[index]] = '-' * dels.delLen[index]
+                    if(delIndex <0):
+                        self.seq[:delIndex+dels.delLen[index]] = '-'*(delIndex+dels.delLen[index])
+                    else:
+                        self.seq[delIndex:delIndex+dels.delLen[index]] = '-' * dels.delLen[index]
                     dels.addedCount[index] = dels.addedCount[index]+1
                     self.suffix = self.suffix + '_' + str(dels.absolutePosition[index])
         
