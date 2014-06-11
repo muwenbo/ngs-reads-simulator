@@ -46,7 +46,12 @@ Sequencing score of error shift to the left side of error.
 
 0.9
 The version for testing 1bp,2bp,5bp,10bp,15bp,20bp,30bp,50bp deletions.
-The abosolute position of sequencing error are wirten to error file.
+The abosolute position of sequencing error are wirten to a file.
 Bug in score shifting is fixed.
+
+
+1.0
+Combined simulating SNPs, deletions and insertions.
+Bug exist when simulate both deletion and insertion.
 
 
