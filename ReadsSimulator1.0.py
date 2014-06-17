@@ -76,11 +76,10 @@ class Read:
     def addInsertion(self,ins):
         for index in range(len(ins.insBufferIndex)):
             p = random.uniform(0,1)
-            if((ins.insBufferIndex[index]+ins.insLen[index] >= self.startPosition and ins.insBufferIndex[index] < self.startPosition + self.read1Len) or (ins.insBufferIndex[index]+ins.insLen[index] >= self.startPosition + self.seqLen - self.read2Len and ins.insBufferIndex[index] < self.startPosition + self.seqLen)):
+            if((ins.insBufferIndex[index]>= self.startPosition and ins.insBufferIndex[index] < self.startPosition + self.read1Len) or (ins.insBufferIndex[index] >= self.startPosition + self.seqLen - self.read2Len and ins.insBufferIndex[index] < self.startPosition + self.seqLen)):
                 ins.totalReadsCount[index] = ins.totalReadsCount[index] + 1
                 if(p < ins.insFraction[index]+0.01):
                     insIndex = ins.insBufferIndex[index]-self.startPosition
-                    print self.seq,ins.insBufferIndex[index],self.startPosition
                     self.seq[insIndex] = str(self.seq[insIndex]) + ins.insAllele[index]
                     ins.addedCount[index] = ins.addedCount[index]+1
                     self.suffix = self.suffix + '_' + str(ins.absolutePosition[index])
