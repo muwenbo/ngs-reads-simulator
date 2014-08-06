@@ -55,5 +55,5 @@ Combined simulating SNPs, deletions and insertions.
 Fix the bug that deletions at the beginning are not added correctly. 
 
 1.1
-For continous alleles, SNPs and Indels are shift to left at the simulation for each comprison with called variants.
+For continous alleles, SNPs and Indels are shift to left at the simulation for easy comprison with called variants.
 
