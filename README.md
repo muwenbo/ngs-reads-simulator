@@ -1,7 +1,17 @@
 ReadSimulator
 =============
-
 Simulate artificial reads for NGS sequencing.
+
+### Runnning example
+Prepared fasta file of all target regions. The header should contain the genomic location of target region, such as chr13:32,908,718-32,916,660 
+```shell
+samtools faidx hg19.fa chr13:32,908,718-32,916,660 > target.fa
+samtools faidx target.fa
+python ReadSimulator/ReadsSimulator.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del 
+```
+
+
+### Version history
 
 0.1 
 Generated single-end or paired end reads.

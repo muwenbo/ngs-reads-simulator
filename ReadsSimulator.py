@@ -11,17 +11,19 @@ from Bio import SeqIO
 
 # Classes
 class Read:
-    def __init__(self,readIndex,sequence,idPrefix,read1Len,read2Len):
+    def __init__(self,readIndex,sequence,idPrefix,read1Len,read2Len,refChr, refStart):
         self.startPosition = readIndex
         self.id = '@'+idPrefix+'_SEQID' + str(readIndex)
         self.read1Len = read1Len
         self.read2Len = read2Len
+        self.refStart = refStart
+        self.refChr = refChr
         #self.errorRate = errorRate
         #self.score = self.scoreGenerator(subSequence)
         dynamicGap = min(random.sample(range(200,300),1)[0],len(sequence)-readIndex-read1Len-read2Len)
         newReadLen = read1Len + dynamicGap + read2Len
         subSequence = sequence[readIndex:readIndex + newReadLen]
-        self.seq = array.array('c',subSequence).tolist()
+        self.seq = array.array('u',subSequence).tolist()
         self.seqLen = len(subSequence)
         #self.scoreGenerator(subSequence,scoreRange)
         self.suffix = ''
@@ -33,12 +35,13 @@ class Read:
         for i in errorIndex:
             rawAllele = self.seq[i]
             newAllele = random.sample([x for x in candAlleles if x != rawAllele],1)[0]
-            self.seq[i] = newAllele
-            error.addItem(self.id,self.startPosition,i,rawAllele,newAllele)
-            self.score[i] = chr(random.sample(range(0,20),1)[0]+33)
+            if rawAllele != newAllele:
+                self.seq[i] = rawAllele
+                error.addItem(self.refChr,self.refStart,self.startPosition,i,rawAllele,newAllele)
+                self.score[i] = chr(random.sample(range(0,20),1)[0]+33)
 
     def scoreGenerator(self,scoreRange):
-        scoreR = range(int(math.ceil(self.seqLen/2.0)))
+        scoreR = list(range(int(math.ceil(self.seqLen/2.0))))
         rawScore1 = [int(scoreRange[1] -  random.gammavariate(1,0.5) - x*random.normalvariate(0.1,0.03)) for x in scoreR]
         scoreR.reverse()
         if (self.seqLen/2.0)%1 != 0:
@@ -52,7 +55,10 @@ class Read:
     def addSNP(self, snp):
         for index in range(len(snp.snpBufferIndex)):
             p = random.uniform(0,1)
-            if((snp.snpBufferIndex[index] >= self.startPosition and snp.snpBufferIndex[index] < self.startPosition + self.read1Len) or (snp.snpBufferIndex[index] >= self.startPosition + self.seqLen - self.read2Len and snp.snpBufferIndex[index] < self.startPosition + self.seqLen)):
+            if((snp.snpBufferIndex[index] >= self.startPosition \
+                and snp.snpBufferIndex[index] < self.startPosition + self.read1Len) \
+                or (snp.snpBufferIndex[index] >= self.startPosition + self.seqLen - self.read2Len \
+                    and snp.snpBufferIndex[index] < self.startPosition + self.seqLen)):
                 snp.totalReadsCount[index] = snp.totalReadsCount[index] + 1
                 if(p <= snp.snpFraction[index]+0.01):
                     self.seq[snp.snpBufferIndex[index] - self.startPosition] = snp.snpAlleles[index] 
@@ -62,7 +68,10 @@ class Read:
     def addDeletion(self,dels):
         for index in range(len(dels.delBufferIndex)):
             p = random.uniform(0,1)
-            if((dels.delBufferIndex[index]+dels.delLen[index] >= self.startPosition and dels.delBufferIndex[index] < self.startPosition + self.read1Len) or (dels.delBufferIndex[index]+dels.delLen[index] >= self.startPosition + self.seqLen - self.read2Len and dels.delBufferIndex[index] < self.startPosition + self.seqLen)):
+            if((dels.delBufferIndex[index]+dels.delLen[index] >= self.startPosition \
+                and dels.delBufferIndex[index] < self.startPosition + self.read1Len) \
+                    or (dels.delBufferIndex[index]+dels.delLen[index] >= self.startPosition + self.seqLen - self.read2Len \
+                        and dels.delBufferIndex[index] < self.startPosition + self.seqLen)):
                 dels.totalReadsCount[index] = dels.totalReadsCount[index] + 1
                 if(p < dels.delFraction[index]+0.01):
                     delIndex = dels.delBufferIndex[index]-self.startPosition
@@ -76,13 +85,16 @@ class Read:
     def addInsertion(self,ins):
         for index in range(len(ins.insBufferIndex)):
             p = random.uniform(0,1)
-            if((ins.insBufferIndex[index] >= self.startPosition and ins.insBufferIndex[index] < self.startPosition + self.read1Len) or (ins.insBufferIndex[index] >= self.startPosition + self.seqLen - self.read2Len and ins.insBufferIndex[index] < self.startPosition + self.seqLen)):
+            if((ins.insBufferIndex[index] >= self.startPosition \
+                and ins.insBufferIndex[index] < self.startPosition + self.read1Len) \
+                    or (ins.insBufferIndex[index] >= self.startPosition + self.seqLen - self.read2Len \
+                        and ins.insBufferIndex[index] < self.startPosition + self.seqLen)):
                 ins.totalReadsCount[index] = ins.totalReadsCount[index] + 1
                 if(p < ins.insFraction[index]+0.01):
                     insIndex = ins.insBufferIndex[index]-self.startPosition
                     if self.seq[insIndex] == '-':
-                        print self.seq
-                        print ins.insBufferIndex[index],self.startPosition
+                        print(self.seq)
+                        print(ins.insBufferIndex[index],self.startPosition)
                         self.seq[insIndex] = str(self.seq[insIndex]) + ins.insAllele[index]
                     ins.addedCount[index] = ins.addedCount[index]+1
                     self.suffix = self.suffix + '_' + str(ins.absolutePosition[index])
@@ -126,9 +138,9 @@ class Read:
         readsFileHandle.reads2F.write(''.join(self.read2Score) + '\n')
     
     def printer(self):
-        print self.id
-        print self.seq
-        print self.score
+        print(self.id)
+        print(self.seq)
+        print(self.score)
 
 
 # SNP are initilized before simulating reads.
@@ -169,9 +181,9 @@ class SNP:
             fileH.write('\t'.join([self.recordID,str(self.absolutePosition[i]),self.sequence[self.snpIndex[i]],self.snpAlleles[i],str(self.addedCount[i]),str(self.totalReadsCount[i])])+'\n')
 
     def printer(self):
-        print self.snpIndex
-        print self.snpAlleles
-        print self.snpFraction	
+        print(self.snpIndex)
+        print(self.snpAlleles)
+        print(self.snpFraction)	
 
 # Deletions are initilized before simulating reads.
 # Deletion information including read coverage, ref/alter allele and 
@@ -216,9 +228,9 @@ class Deletion:
             fileH.write('\t'.join([self.recordID,str(self.absolutePosition[i]-1),self.preAllele[i],str(self.preAllele[i])+'-'*self.delLen[i],str(self.addedCount[i]),str(self.totalReadsCount[i])])+'\n')
 
     def printer(self):
-        print self.delIndex
-        print self.delAllele
-        print self.delFraction	
+        print(self.delIndex)
+        print(self.delAllele)
+        print(self.delFraction)	
 
 
 # Insertions are initilized before simulating reads.
@@ -267,25 +279,27 @@ class Insertion:
             fileH.write('\t'.join([self.recordID,str(self.absolutePosition[i]),self.currentAllele[i],self.currentAllele[i]+self.insAllele[i],str(self.addedCount[i]),str(self.totalReadsCount[i])])+'\n')
 
     def printer(self):
-        print self.insIndex
-        print self.insAllele
-        print self.insFraction	
+        print(self.insIndex)
+        print(self.insAllele)
+        print(self.insFraction)	
 
    
 class Error:
     def __init__(self):
         self.errorInfor = {}
 
-    def addItem(self,id,parentIndex,localIndex,rawAllele,newAllele):
-        globalIndex = str(int(id.split('_')[3]) + parentIndex + localIndex)
-        if globalIndex not in self.errorInfor:
-            self.errorInfor[globalIndex] = [id,rawAllele,newAllele]
+    def addItem(self,refChr,refStart,parentIndex,localIndex,rawAllele,newAllele):
+        globalIndex = str(refStart + parentIndex + localIndex)
+        key=refChr + ':' + globalIndex
+        #print(key, rawAllele, newAllele)
+        if key not in self.errorInfor:
+            self.errorInfor[key] = [refChr,globalIndex,rawAllele,newAllele]
         else:
-            self.errorInfor[globalIndex][2] = self.errorInfor[globalIndex][2] + '\\' + newAllele    
+            self.errorInfor[key][3] = self.errorInfor[key][3] + '\\' + newAllele    
 
     def writeToFile(self,fileH):
         for key in self.errorInfor:
-            fileH.write('\t'.join(self.errorInfor[key])+ '\t' + key + '\n')
+            fileH.write('\t'.join(self.errorInfor[key])+'\n')
 
 
 class ReadsFileHandle:
@@ -309,32 +323,36 @@ class ReadsFileHandle:
     def fileDelete(self):
         for file in self.fileName:
             if os.path.isfile(file):
-                print 'Removing ' + str(file) + '!'
+                print('Removing ' + str(file) + '!')
                 os.system('rm ' + file)
         if os.path.isfile(self.varOutFile):
-            print 'Removing ' + self.varOutFile + '!'
+            print('Removing ' + self.varOutFile + '!')
             os.system('rm ' + self.varOutFile)
 
         if os.path.isfile(self.errorOutFile):
-            print 'Removing ' + self.errorOutFile + '!'
+            print('Removing ' + self.errorOutFile + '!')
             os.system('rm ' + self.errorOutFile)
 
 
 # Function for generating reads
 def generateReads(seqBiopython,readsFileH,parameters):
     sequence = seqBiopython.seq
-    idPrefix = seqBiopython.id
-    geneStart = int(idPrefix.split('_')[3])
-    strand = idPrefix.split('_')[1]
+    # id format such as chr13:32,908,718-32,916,660 is expected
+    idPrefix = seqBiopython.id.split(':')
+
+    chrId = idPrefix[0]
+    startBp = int(idPrefix[1].split('-')[0].replace(',',''))
+
+    strand = '+'
     #readLen = parameters['readLen']
     varIndexes = []
     bufferRegion = parameters['bufferRegion']
     if parameters['del']:
-        dels = Deletion(sequence,geneStart,strand,idPrefix,parameters['varFraction'],bufferRegion,varIndexes)
+        dels = Deletion(sequence,startBp,strand,chrId,parameters['varFraction'],bufferRegion,varIndexes)
     if parameters['ins']:
-        ins = Insertion(sequence,geneStart,strand,idPrefix,parameters['varFraction'],bufferRegion,varIndexes)
+        ins = Insertion(sequence,startBp,strand,chrId,parameters['varFraction'],bufferRegion,varIndexes)
     if parameters['snp']:
-        snp = SNP(parameters['snpPercentage'],sequence,geneStart,strand,idPrefix,parameters['varFraction'],bufferRegion,varIndexes)
+        snp = SNP(parameters['snpPercentage'],sequence,startBp,strand,chrId,parameters['varFraction'],bufferRegion,varIndexes)
     error = Error()
     seqLen =len(sequence)
 #    for i in range(seqLen - min(readLen,read1Len+read2Len)):
@@ -345,9 +363,9 @@ def generateReads(seqBiopython,readsFileH,parameters):
         while(multiple > 0):
             p = random.uniform(0,1)
             if(p <= multiple):
-                idPrefixSuffix = idPrefix + '_' + str(multiple)            
+                idPrefixSuffix = seqBiopython.id + '_' + str(multiple)            
 	        #dynamicGap = random.sample(range(min(readLen,seqLen - i)-read1Len-read2Len),1)[0]
-                read = Read(i,sequence,idPrefixSuffix,read1Len,read2Len)
+                read = Read(i,sequence,idPrefixSuffix,read1Len,read2Len,chrId,startBp)
                 if parameters['del']:
                     read.addDeletion(dels)
                 if parameters['ins']:
@@ -357,9 +375,9 @@ def generateReads(seqBiopython,readsFileH,parameters):
                 try:
                     read.readsFinalizer(parameters['errorRate'],error)
                 except:
-                    print ins.insIndex,ins.insLen
-                    print dels.delIndex,dels.delLen
-                    print varIndexes
+                    print(ins.insIndex,ins.insLen)
+                    print(dels.delIndex,dels.delLen)
+                    print(varIndexes)
                 read.writeToFile(readsFileH)
             multiple = multiple-1
     if parameters['snp']:
@@ -372,7 +390,10 @@ def generateReads(seqBiopython,readsFileH,parameters):
 
 def argumentParser(argv):
     try:
-        opts, args = getopt.getopt(argv,'hG:S:F:E:12',['help','coverage=','readsOutFile=','errorRate=','readLength=','varFraction=','scoreRange=','bufferRegion=','snpPercentage=','varOutFile=','refGenome=','readsOutFile=','errorOutFile=','snp','deletion','insertion'])
+        opts, args = getopt.getopt(argv,'hG:S:F:E:12',
+            ['help','coverage=','readsOutFile=','errorRate=','readLength=','varFraction=','scoreRange=',\
+            'bufferRegion=','snpPercentage=','varOutFile=','refGenome=','readsOutFile=','errorOutFile=',\
+            'snp','deletion','insertion'])
     except getopt.GetoptError:
         usage()
         sys.exit(2)
@@ -388,11 +409,12 @@ def argumentParser(argv):
         'varFraction' : 0.5,
         'scoreRange' : [0,40],
         'bufferRegion' : 100,
-        'read1Len' : 100,
-        'read2Len' : 100,
+        'read1Len' : 150,
+        'read2Len' : 150,
         'snp' : False,
         'del' : False,
         'ins' : False,
+        'seed': None
     }
 	
     for opt,arg in opts:
@@ -431,21 +453,25 @@ def argumentParser(argv):
             parameters['del'] = True
         elif opt == '--insertion':
             parameters['ins'] = True
+        elif opt == '--seed':
+            parameters['seed'] = int(arg)
         else:
             assert False, 'unhandeld option'
     
     return parameters
 			
 def usage():
-    print "Usage:"
+    print("Usage:")
     
 
 def main():
     para = argumentParser(sys.argv[1:])
+    if para['seed'] is not None:
+        random.seed(para['seed'])
     readsFileH = ReadsFileHandle(para['readsOutFilePrefix'],para['varOutFile'],para['errorOutFile'])
     readsFileH.fileDelete()
     readsFileH.fileOpen()
-    print 'Start simulating.'
+    print('Start simulating.')
     for seqRecord in SeqIO.parse(para['refGenome'],'fasta'):
         generateReads(seqRecord,readsFileH,para)
     readsFileH.fileClose()
