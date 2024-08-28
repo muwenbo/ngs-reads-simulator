@@ -1,0 +1,127 @@
+2024-08-28 14:03:25,433 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 14:03:25,433 - INFO - No random seed provided
+2024-08-28 14:03:25,433 - INFO - Reference genome: target.fa
+2024-08-28 14:03:25,433 - INFO - Coverage: 50
+2024-08-28 14:03:25,433 - INFO - Error rate: 0.01
+2024-08-28 14:03:25,433 - INFO - SNP percentage: 0.01
+2024-08-28 14:03:25,433 - INFO - Variant fraction: 0.5
+2024-08-28 14:03:25,434 - INFO - Start simulating.
+2024-08-28 14:05:04,652 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 14:05:04,652 - INFO - No random seed provided
+2024-08-28 14:05:04,652 - INFO - Reference genome: target.fa
+2024-08-28 14:05:04,652 - INFO - Coverage: 50
+2024-08-28 14:05:04,652 - INFO - Error rate: 0.01
+2024-08-28 14:05:04,652 - INFO - SNP percentage: 0.01
+2024-08-28 14:05:04,652 - INFO - Variant fraction: 0.5
+2024-08-28 14:05:04,653 - INFO - Start simulating.
+2024-08-28 14:05:23,227 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 14:05:23,227 - INFO - No random seed provided
+2024-08-28 14:05:23,227 - INFO - Reference genome: target.fa
+2024-08-28 14:05:23,227 - INFO - Coverage: 50
+2024-08-28 14:05:23,228 - INFO - Error rate: 0.01
+2024-08-28 14:05:23,228 - INFO - SNP percentage: 0.01
+2024-08-28 14:05:23,228 - INFO - Variant fraction: 0.5
+2024-08-28 14:05:23,228 - INFO - Start simulating.
+2024-08-28 14:06:22,818 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 14:06:22,819 - INFO - No random seed provided
+2024-08-28 14:06:22,819 - INFO - Reference genome: target.fa
+2024-08-28 14:06:22,819 - INFO - Coverage: 50
+2024-08-28 14:06:22,819 - INFO - Error rate: 0.01
+2024-08-28 14:06:22,819 - INFO - SNP percentage: 0.01
+2024-08-28 14:06:22,819 - INFO - Variant fraction: 0.5
+2024-08-28 14:06:22,820 - INFO - Start simulating.
+2024-08-28 14:07:14,181 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 14:07:14,181 - INFO - No random seed provided
+2024-08-28 14:07:14,181 - INFO - Reference genome: target.fa
+2024-08-28 14:07:14,181 - INFO - Coverage: 50
+2024-08-28 14:07:14,182 - INFO - Error rate: 0.01
+2024-08-28 14:07:14,182 - INFO - SNP percentage: 0.01
+2024-08-28 14:07:14,182 - INFO - Variant fraction: 0.5
+2024-08-28 14:07:14,182 - INFO - Start simulating.
+2024-08-28 15:06:36,176 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 15:06:36,176 - INFO - No random seed provided
+2024-08-28 15:06:36,176 - INFO - Reference genome: target.fa
+2024-08-28 15:06:36,176 - INFO - Coverage: 50
+2024-08-28 15:06:36,177 - INFO - Error rate: 0.01
+2024-08-28 15:06:36,177 - INFO - SNP percentage: 0.01
+2024-08-28 15:06:36,177 - INFO - Variant fraction: 0.5
+2024-08-28 15:06:36,178 - INFO - Start simulating.
+2024-08-28 15:06:36,193 - ERROR - Error in read finalization: ins_index=[], ins_len=[]
+2024-08-28 15:06:36,193 - ERROR - del_index=[49, 391, 705, 909], del_len=[5, 1, 20, 1]
+2024-08-28 15:06:36,193 - ERROR - var_indexes=[49, 50, 51, 52, 53, 391, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 909]
+2024-08-28 15:06:46,592 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 15:06:46,593 - INFO - No random seed provided
+2024-08-28 15:06:46,593 - INFO - Reference genome: target.fa
+2024-08-28 15:06:46,593 - INFO - Coverage: 50
+2024-08-28 15:06:46,593 - INFO - Error rate: 0.01
+2024-08-28 15:06:46,593 - INFO - SNP percentage: 0.01
+2024-08-28 15:06:46,593 - INFO - Variant fraction: 0.5
+2024-08-28 15:06:46,593 - INFO - Start simulating.
+2024-08-28 15:06:46,610 - ERROR - Error in read finalization: ins_index=[39, 283, 579, 872, 1077, 1345, 1506, 1714, 1906, 2101, 2384, 2563, 2808, 3135, 3310, 3498, 3668, 3899, 4185], ins_len=[1, 1, 1, 2, 1, 2, 2, 1, 1, 2, 2, 1, 2, 15, 1, 1, 1, 10, 30]
+2024-08-28 15:06:46,611 - ERROR - del_index=[7, 204, 355, 683, 981, 1204, 1514, 1691, 1950, 2151, 2478, 2794, 3073, 3237, 3487, 3752, 4099, 4269, 4529, 4723, 4891, 5112, 5368, 5598, 5896, 6190, 6402, 6585, 6927, 7104, 7416], del_len=[1, 1, 1, 1, 1, 1, 1, 5, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 2, 1, 15, 5, 1, 2, 1, 1, 1, 1]
+2024-08-28 15:06:46,611 - ERROR - var_indexes=[7, 204, 355, 683, 981, 1204, 1514, 1691, 1692, 1693, 1694, 1695, 1950, 1951, 2151, 2478, 2794, 3073, 3237, 3487, 3752, 4099, 4269, 4529, 4530, 4723, 4724, 4891, 5112, 5113, 5368, 5598, 5599, 5600, 5601, 5602, 5603, 5604, 5605, 5606, 5607, 5608, 5609, 5610, 5611, 5612, 5896, 5897, 5898, 5899, 5900, 6190, 6402, 6403, 6585, 6927, 7104, 7416, 39, 283, 579, 872, 1077, 1345, 1506, 1714, 1906, 2101, 2384, 2563, 2808, 3135, 3310, 3498, 3668, 3899, 4185]
+2024-08-28 15:10:58,957 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 15:10:58,957 - INFO - No random seed provided
+2024-08-28 15:10:58,957 - INFO - Reference genome: target.fa
+2024-08-28 15:10:58,957 - INFO - Coverage: 50
+2024-08-28 15:10:58,957 - INFO - Error rate: 0.01
+2024-08-28 15:10:58,957 - INFO - SNP percentage: 0.01
+2024-08-28 15:10:58,957 - INFO - Variant fraction: 0.5
+2024-08-28 15:10:58,958 - INFO - Start simulating.
+2024-08-28 15:10:58,973 - ERROR - Error in read finalization: ins_index=[30, 187, 510], ins_len=[5, 2, 2]
+2024-08-28 15:10:58,973 - ERROR - del_index=[43, 381, 641, 849, 1051, 1298, 1627, 1873, 2141, 2480, 2673, 2839, 3183, 3426, 3724, 4020, 4177, 4362, 4698, 4978, 5229, 5475, 5671, 5906, 6090, 6301, 6474, 6628, 6975], del_len=[1, 1, 10, 10, 1, 15, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 10, 2, 1, 10, 1, 1, 1, 30, 1, 1, 15, 1, 1]
+2024-08-28 15:10:58,974 - ERROR - var_indexes=[43, 381, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 1051, 1298, 1299, 1300, 1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1627, 1873, 2141, 2480, 2673, 2839, 3183, 3426, 3724, 4020, 4021, 4177, 4178, 4179, 4180, 4181, 4182, 4183, 4184, 4185, 4186, 4362, 4363, 4698, 4978, 4979, 4980, 4981, 4982, 4983, 4984, 4985, 4986, 4987, 5229, 5475, 5671, 5906, 5907, 5908, 5909, 5910, 5911, 5912, 5913, 5914, 5915, 5916, 5917, 5918, 5919, 5920, 5921, 5922, 5923, 5924, 5925, 5926, 5927, 5928, 5929, 5930, 5931, 5932, 5933, 5934, 5935, 6090, 6301, 6474, 6475, 6476, 6477, 6478, 6479, 6480, 6481, 6482, 6483, 6484, 6485, 6486, 6487, 6488, 6628, 6975, 30, 187, 510]
+2024-08-28 15:12:16,827 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --ins --del
+2024-08-28 15:12:16,827 - INFO - No random seed provided
+2024-08-28 15:12:16,827 - INFO - Reference genome: target.fa
+2024-08-28 15:12:16,827 - INFO - Coverage: 50
+2024-08-28 15:12:16,827 - INFO - Error rate: 0.01
+2024-08-28 15:12:16,827 - INFO - SNP percentage: 0.01
+2024-08-28 15:12:16,827 - INFO - Variant fraction: 0.5
+2024-08-28 15:12:16,828 - INFO - Start simulating.
+2024-08-28 15:12:18,759 - INFO - Simulation completed.
+2024-08-28 15:23:01,611 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-08-28 15:23:01,611 - INFO - No random seed provided
+2024-08-28 15:23:01,611 - INFO - Reference genome: target.fa
+2024-08-28 15:23:01,611 - INFO - Coverage: 50
+2024-08-28 15:23:01,611 - INFO - Error rate: 0.01
+2024-08-28 15:23:01,612 - INFO - SNP percentage: 0.01
+2024-08-28 15:23:01,612 - INFO - Variant fraction: 0.5
+2024-08-28 15:23:01,615 - INFO - Start simulating.
+2024-08-28 15:23:03,512 - INFO - Simulation completed.
+2024-08-28 15:23:05,559 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion --seed 21
+2024-08-28 15:23:05,560 - INFO - Random seed set to: 21
+2024-08-28 15:23:05,560 - INFO - Reference genome: target.fa
+2024-08-28 15:23:05,560 - INFO - Coverage: 50
+2024-08-28 15:23:05,560 - INFO - Error rate: 0.01
+2024-08-28 15:23:05,560 - INFO - SNP percentage: 0.01
+2024-08-28 15:23:05,560 - INFO - Variant fraction: 0.5
+2024-08-28 15:23:05,561 - INFO - Start simulating.
+2024-08-28 15:23:07,525 - INFO - Simulation completed.
+2024-08-28 15:23:09,392 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion --seed 21
+2024-08-28 15:23:09,392 - INFO - Random seed set to: 21
+2024-08-28 15:23:09,392 - INFO - Reference genome: target.fa
+2024-08-28 15:23:09,392 - INFO - Coverage: 50
+2024-08-28 15:23:09,392 - INFO - Error rate: 0.01
+2024-08-28 15:23:09,392 - INFO - SNP percentage: 0.01
+2024-08-28 15:23:09,392 - INFO - Variant fraction: 0.5
+2024-08-28 15:23:09,393 - INFO - Start simulating.
+2024-08-28 15:23:11,392 - INFO - Simulation completed.
+2024-08-28 15:23:13,024 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion --seed 21
+2024-08-28 15:23:13,024 - INFO - Random seed set to: 21
+2024-08-28 15:23:13,024 - INFO - Reference genome: target.fa
+2024-08-28 15:23:13,024 - INFO - Coverage: 50
+2024-08-28 15:23:13,024 - INFO - Error rate: 0.01
+2024-08-28 15:23:13,024 - INFO - SNP percentage: 0.01
+2024-08-28 15:23:13,024 - INFO - Variant fraction: 0.5
+2024-08-28 15:23:13,025 - INFO - Start simulating.
+2024-08-28 15:23:14,968 - INFO - Simulation completed.
+2024-08-28 16:18:40,661 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion --seed 21
+2024-08-28 16:18:40,662 - INFO - Random seed set to: 21
+2024-08-28 16:18:40,662 - INFO - Reference genome: target.fa
+2024-08-28 16:18:40,662 - INFO - Coverage: 50
+2024-08-28 16:18:40,662 - INFO - Error rate: 0.01
+2024-08-28 16:18:40,662 - INFO - SNP percentage: 0.01
+2024-08-28 16:18:40,662 - INFO - Variant fraction: 0.5
+2024-08-28 16:18:40,664 - INFO - Start simulating.
+2024-08-28 16:18:42,469 - INFO - Simulation completed.
