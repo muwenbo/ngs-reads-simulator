@@ -24,7 +24,7 @@ class Deletion:
         absolute_position (list): Absolute positions of deletions in the original sequence.
     """
 
-    def __init__(self, sequence, absolute_start, strand, record_id, del_fraction, buffer_region, var_indexes):
+    def __init__(self, len_set_string, sequence, absolute_start, strand, record_id, del_fraction, buffer_region, var_indexes):
         """
         Initialize the Deletion object with given parameters.
 
@@ -43,9 +43,11 @@ class Deletion:
         self.del_allele = []
         self.pre_allele = []
 
+        # len_set_string = '1*200,2*40,5*20,10*10,15*10,20*5'
         # Define possible deletion lengths and their frequencies
-        len_set = [1]*200 + [2]*40 + [5]*20 + [10]*10 + [15]*10 + [20]*5 + [30]*5 + [50]*2
-        
+        # len_set = [1]*200 + [2]*40 + [5]*20 + [10]*10 + [15]*10 + [20]*5
+        len_set = [int(item.split('*')[0]) for item in len_set_string.split(',') for _ in range(int(item.split('*')[1]))]
+
         # Start from a random index within the first 50 bases
         index = random.sample(range(50), 1)[0]
 
@@ -67,8 +69,8 @@ class Deletion:
             self.del_index.append(index)
             var_indexes.extend(range(index, index+cur_del_len))
 
-            # Simulate next deletion 150-350bp away
-            index = index + random.sample(range(150, 350), 1)[0]
+            # Simulate next deletion 300-600bp away
+            index = index + random.sample(range(300, 600), 1)[0]
 
         self.del_count = len(self.del_len)
         self.del_fraction = [del_fraction] * self.del_count

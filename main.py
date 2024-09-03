@@ -50,9 +50,9 @@ def generate_reads(seq_biopython, reads_file_h, parameters):
 
     # Initialize variation objects if enabled in parameters
     if parameters['del']:
-        dels = Deletion(sequence, start_bp, strand, chr_id, parameters['var_fraction'], buffer_region, var_indexes)
+        dels = Deletion(parameters['deletion_length'], sequence, start_bp, strand, chr_id, parameters['var_fraction'], buffer_region, var_indexes)
     if parameters['ins']:
-        ins = Insertion(sequence, start_bp, strand, chr_id, parameters['var_fraction'], buffer_region, var_indexes)
+        ins = Insertion(parameters['insertion_length'], sequence, start_bp, strand, chr_id, parameters['var_fraction'], buffer_region, var_indexes)
     if parameters['snp']:
         snp = SNP(parameters['snp_percentage'], sequence, start_bp, strand, chr_id, parameters['var_fraction'], buffer_region, var_indexes)
 
@@ -122,7 +122,14 @@ def argument_parser(argv):
     parser.add_argument('--coverage', type=int, default=50, help='Expected coverage depth')
     parser.add_argument('--error_rate', type=float, default=0.01, help='Error rate')
     parser.add_argument('--read_length', type=int, default=400, help='Estimated DNA fragment length')
-    parser.add_argument('--snp_percentage', type=float, default=0.01, help='SNP percentage')
+    parser.add_argument('--snp_percentage', type=float, default=0.01, help='SNP percentage regarding \
+                        to the length of given sequence. 0.01 represents 1 SNP per 100 base pairs')
+    parser.add_argument('--deletion_length', type=str, default='1*200,2*40,5*20,10*10,15*10,20*5', 
+                        help='Define the expected length of deletion and count of each length, e.g. \
+                        1*200,2*40 represents 200 1bp deletions and 40 2bp deletions.')
+    parser.add_argument('--insertion_length', type=str, default='1*200,2*40,5*20,10*10,15*10,20*5', 
+                    help='Define the expected length of insertion and count of each length, e.g. \
+                    1*200,2*40 represents 200 1bp insertions and 40 2bp insertions.')
     parser.add_argument('--var_fraction', type=float, default=0.5, help='Variant fraction')
     parser.add_argument('--score_range', nargs=2, type=int, default=[0, 40], help='Sequencing score range')
     parser.add_argument('--buffer_region', type=int, default=100, help='Buffer region size')

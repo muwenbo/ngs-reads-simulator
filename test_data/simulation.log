@@ -125,3 +125,60 @@
 2024-08-28 16:18:40,662 - INFO - Variant fraction: 0.5
 2024-08-28 16:18:40,664 - INFO - Start simulating.
 2024-08-28 16:18:42,469 - INFO - Simulation completed.
+2024-09-03 11:09:29,135 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:09:29,137 - INFO - No random seed provided. Generated seed 204 is used.
+2024-09-03 11:09:29,137 - INFO - Reference genome: target.fa
+2024-09-03 11:09:29,137 - INFO - Coverage: 50
+2024-09-03 11:09:29,137 - INFO - Error rate: 0.01
+2024-09-03 11:09:29,137 - INFO - SNP percentage: 0.01
+2024-09-03 11:09:29,137 - INFO - Variant fraction: 0.5
+2024-09-03 11:09:29,145 - INFO - Start simulating.
+2024-09-03 11:10:42,465 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:10:42,465 - INFO - No random seed provided. Generated seed 61 is used.
+2024-09-03 11:10:42,465 - INFO - Reference genome: target.fa
+2024-09-03 11:10:42,465 - INFO - Coverage: 50
+2024-09-03 11:10:42,465 - INFO - Error rate: 0.01
+2024-09-03 11:10:42,465 - INFO - SNP percentage: 0.01
+2024-09-03 11:10:42,465 - INFO - Variant fraction: 0.5
+2024-09-03 11:10:42,466 - INFO - Start simulating.
+2024-09-03 11:11:56,851 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:11:56,851 - INFO - No random seed provided. Generated seed 326 is used.
+2024-09-03 11:11:56,851 - INFO - Reference genome: target.fa
+2024-09-03 11:11:56,851 - INFO - Coverage: 50
+2024-09-03 11:11:56,852 - INFO - Error rate: 0.01
+2024-09-03 11:11:56,852 - INFO - SNP percentage: 0.01
+2024-09-03 11:11:56,852 - INFO - Variant fraction: 0.5
+2024-09-03 11:11:56,852 - INFO - Start simulating.
+2024-09-03 11:13:55,835 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:13:55,835 - INFO - No random seed provided. Generated seed 92 is used.
+2024-09-03 11:13:55,835 - INFO - Reference genome: target.fa
+2024-09-03 11:13:55,835 - INFO - Coverage: 50
+2024-09-03 11:13:55,835 - INFO - Error rate: 0.01
+2024-09-03 11:13:55,835 - INFO - SNP percentage: 0.01
+2024-09-03 11:13:55,835 - INFO - Variant fraction: 0.5
+2024-09-03 11:13:55,836 - INFO - Start simulating.
+2024-09-03 11:15:29,756 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:15:29,757 - INFO - No random seed provided. Generated seed 744 is used.
+2024-09-03 11:15:29,757 - INFO - Reference genome: target.fa
+2024-09-03 11:15:29,757 - INFO - Coverage: 50
+2024-09-03 11:15:29,757 - INFO - Error rate: 0.01
+2024-09-03 11:15:29,757 - INFO - SNP percentage: 0.01
+2024-09-03 11:15:29,757 - INFO - Variant fraction: 0.5
+2024-09-03 11:15:29,758 - INFO - Start simulating.
+2024-09-03 11:22:02,384 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:22:02,385 - INFO - No random seed provided. Generated seed 631 is used.
+2024-09-03 11:22:02,385 - INFO - Reference genome: target.fa
+2024-09-03 11:22:02,385 - INFO - Coverage: 50
+2024-09-03 11:22:02,386 - INFO - Error rate: 0.01
+2024-09-03 11:22:02,386 - INFO - SNP percentage: 0.01
+2024-09-03 11:22:02,386 - INFO - Variant fraction: 0.5
+2024-09-03 11:22:02,387 - INFO - Start simulating.
+2024-09-03 11:24:04,447 - INFO - Command-line arguments: ../main.py -G target.fa -S simulated_variants.out -F simulate.reads -E simulated_sequencing_error.txt --snp --insertion --deletion
+2024-09-03 11:24:04,448 - INFO - No random seed provided. Generated seed 866 is used.
+2024-09-03 11:24:04,448 - INFO - Reference genome: target.fa
+2024-09-03 11:24:04,448 - INFO - Coverage: 50
+2024-09-03 11:24:04,448 - INFO - Error rate: 0.01
+2024-09-03 11:24:04,448 - INFO - SNP percentage: 0.01
+2024-09-03 11:24:04,448 - INFO - Variant fraction: 0.5
+2024-09-03 11:24:04,449 - INFO - Start simulating.
+2024-09-03 11:24:06,129 - INFO - Simulation completed.

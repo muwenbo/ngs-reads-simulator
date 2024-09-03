@@ -24,7 +24,7 @@ class Insertion:
         absolute_position (list): Absolute positions of insertions in the original sequence.
     """
 
-    def __init__(self, sequence, absolute_start, strand, record_id, ins_fraction, buffer_region, var_indexes):
+    def __init__(self, len_set_string, sequence, absolute_start, strand, record_id, ins_fraction, buffer_region, var_indexes):
         """
         Initialize the Insertion object with given parameters.
 
@@ -43,8 +43,11 @@ class Insertion:
         self.ins_allele = []
         self.current_allele = []
 
-        # Define possible insertion lengths and their frequencies
-        len_set = [1]*200 + [2]*40 + [5]*20 + [10]*10 + [15]*10 + [20]*5 + [30]*5 + [50]*2
+        # len_set_string = '1*200,2*40,5*20,10*10,15*10,20*5'
+        # Define possible deletion lengths and their frequencies
+        # len_set = [1]*200 + [2]*40 + [5]*20 + [10]*10 + [15]*10 + [20]*5
+        len_set = [int(item.split('*')[0]) for item in len_set_string.split(',') for _ in range(int(item.split('*')[1]))]
+
         
         # Start from a random index within the first 50 bases
         index = random.sample(range(50), 1)[0]
@@ -68,8 +71,8 @@ class Insertion:
             self.ins_index.append(index)
             var_indexes.append(index)
 
-            # Insertions are simulated with 150-350 bp between each other
-            index = index + random.sample(range(150, 350), 1)[0]
+            # Insertions are simulated with 300-600 bp between each other
+            index = index + random.sample(range(300, 600), 1)[0]
 
         self.ins_count = len(self.ins_len)
         self.ins_fraction = [ins_fraction] * self.ins_count
