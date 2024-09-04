@@ -1,3 +1,5 @@
+
+
 class SequencingError:
     """
     A class to represent and manage sequencing errors in simulated reads.

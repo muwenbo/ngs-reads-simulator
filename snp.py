@@ -1,6 +1,5 @@
 
 import random
-import array
 import math
 
 class SNP:

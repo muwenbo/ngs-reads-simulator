@@ -1,5 +1,6 @@
 import os
 
+
 class ReadsFileHandle:
     """
     A class to handle file operations for simulated reads and associated data.

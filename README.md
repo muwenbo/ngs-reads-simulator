@@ -9,9 +9,6 @@ NGS-Reads-Simulator is a tool for simulating artificial reads for Next-Generatio
 - Simulate sequencing errors
 - Customizable read parameters
 
-## Installation
-
-[Add installation instructions here]
 
 ## Usage
 ```shell

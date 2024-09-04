@@ -3,7 +3,6 @@ import random
 import array
 import math
 
-
 class Read:
     """
     A class representing a simulated DNA read with various attributes and methods for read manipulation.
